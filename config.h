@@ -55,6 +55,7 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define SCROT SHCMD("sleep 0.2 && scrot -s /tmp/scrot-$(ls /tmp/scrot-* | wc -l).png")
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -71,6 +72,7 @@ static Key keys[] = {
 	{ MODKEY,	                XK_F10,    spawn,          {.v = voldown_cmd } },
 	{ MODKEY,	                XK_F11,    spawn,          {.v = volup_cmd } },
 	{ MODKEY,	                XK_F12,    spawn,          {.v = voltoggle_cmd } },
+	{ 0,            	        XK_Print,  spawn,          SCROT },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
