@@ -46,7 +46,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -64,6 +64,8 @@ static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 static const char *volup_cmd[]  = { "amixer", "set", "Master", "1%+", NULL };
 static const char *voldown_cmd[]  = { "amixer", "set", "Master", "1%-", NULL };
 static const char *voltoggle_cmd[]  = { "amixer", "set", "Master", "toggle", NULL };
+static const char *light_inc_cmd[]  = { "light", "-A", "1", NULL };
+static const char *light_dec_cmd[]  = { "light", "-U", "1", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -72,10 +74,12 @@ static Key keys[] = {
 	{ MODKEY,	                XK_F10,    spawn,          {.v = voldown_cmd } },
 	{ MODKEY,	                XK_F11,    spawn,          {.v = volup_cmd } },
 	{ MODKEY,	                XK_F12,    spawn,          {.v = voltoggle_cmd } },
-	{ 0,            	        XK_Print,  spawn,          SCROT },
-	{ 0,         XF86XK_AudioLowerVolume,      spawn,          {.v = voldown_cmd } },
-	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          {.v = volup_cmd } },
-	{ 0,         XF86XK_AudioMute,             spawn,          {.v = voltoggle_cmd } },
+	{ MODKEY,            	        XK_F3,     spawn,          SCROT },
+	{ 0,	     XF86XK_AudioLowerVolume,      spawn,          {.v = voldown_cmd } },
+	{ 0,	     XF86XK_AudioRaiseVolume,      spawn,          {.v = volup_cmd } },
+	{ 0,	     XF86XK_AudioMute,             spawn,          {.v = voltoggle_cmd } },
+	{ 0,	     XF86XK_MonBrightnessUp,       spawn,          {.v = light_inc_cmd } },
+	{ 0,	     XF86XK_MonBrightnessDown,     spawn,          {.v = light_dec_cmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
