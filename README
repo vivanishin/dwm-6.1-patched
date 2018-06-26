@@ -2,6 +2,19 @@ dwm - dynamic window manager
 ============================
 dwm is an extremely fast, small, and dynamic window manager for X.
 
+My patches
+----------
+`combined.patch` is out of date now, so the process I used last time for
+building and installing the patched dwm on archlinux is this:
+
+    git clone https://github.com/ivladak/dwm-6.1-patched.git /tmp/dwm-vi
+    git clone https://aur.archlinux.org/dwm.git && cd dwm
+    patch -p1 < /tmp/dwm-vi/patches/combined.patch
+    cp /tmp/dwm-vi/config.h .
+    cp /tmp/dwm-vi/config.h src/dwm-6.1/config.h
+    makepkg -efi
+
+Which should be streamlined but there is no point as it is not done too often.
 
 Requirements
 ------------
