@@ -9,6 +9,7 @@ building and installing the patched dwm on archlinux is this:
 
     git clone https://github.com/ivladak/dwm-6.1-patched.git /tmp/dwm-vi
     git clone https://aur.archlinux.org/dwm.git && cd dwm
+    makepkg -o
     patch -p1 < /tmp/dwm-vi/patches/combined.patch
     cp /tmp/dwm-vi/config.h .
     cp /tmp/dwm-vi/config.h src/dwm-6.1/config.h
