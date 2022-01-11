@@ -5,9 +5,9 @@
 
 /* appearance */
 static const char *fonts[] = {
-	"Inconsolata:size=12:antialias=true:autohint=true"
+	"Inconsolata LGC:size=14:antialias=true:autohint=true"
 };
-static const char dmenufont[]       = "Inconsolata:size=12:antialias=true:autohint=true";
+static const char dmenufont[]       = "Inconsolata LGC:size=14:antialias=true:autohint=true";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
